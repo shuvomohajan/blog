@@ -1,0 +1,36 @@
+.post {
+  display: flex;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+
+    .title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .date {
+      color: #686868;
+      margin-bottom: 5px;
+    }
+
+    .details {
+      margin-bottom: 0;
+      line-height: 1.5;
+      color: #686868;
+    }
+  }
+}

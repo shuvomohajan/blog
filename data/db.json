@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Hello World 1",
+            "date": "Feb 3, 2021",
+            "details": "This is my first post"
+        },
+        {
+            "id": 2,
+            "title": "Hello World 2",
+            "date": "Feb 14, 2021",
+            "details": "This is my secong post"
+        },
+        {
+            "id": 3,
+            "title": "Hello World 3",
+            "date": "Feb 25, 2021",
+            "details": "This is my third post"
+        }
+    ]
+}

@@ -6,26 +6,28 @@ function useFatch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw Error(response.status + " " + response.statusText);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          setDatas(data);
-          setIsLoading(false);
-          setError(null);
-        })
-        .catch((error) => {
+    const abortController = new AbortController();
+
+    fetch(url, { signal: abortController.signal })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.status + " " + response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setDatas(data);
+        setIsLoading(false);
+        setError(null);
+      })
+      .catch((error) => {
+        if (error.name !== "AbortError") {
           setIsLoading(false);
           setError(error.message);
-        });
-    }, 1000);
+        }
+      });
 
-    return () => console.log("ok");
+    return () => abortController.abort();
   }, [url]);
 
   return [data, isLoading, error];

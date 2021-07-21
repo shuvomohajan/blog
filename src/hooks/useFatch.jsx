@@ -14,7 +14,6 @@ function useFatch(url) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setDatas(data);
         setIsLoading(false);
         setError(null);

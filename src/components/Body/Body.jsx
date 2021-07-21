@@ -2,6 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Posts from "../Posts/Posts";
 import PostDetails from "../Posts/PostDetails/PostDetails";
+import NotFound from "../NotFound/NotFound";
 
 function Body() {
   return (
@@ -19,6 +20,9 @@ function Body() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </section>

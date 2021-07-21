@@ -1,13 +1,19 @@
+import useFatch from "../../hooks/useFatch";
 import Post from "./Post/Post";
 import style from "./Posts.module.scss";
 
-function Posts({ posts }) {
+function Posts() {
+  const [posts, isLoading, error] = useFatch("http://localhost:8000/posts");
+
   return (
-    <div className={style.posts}>
-      {posts.map((post) => (
-        <Post post={post} key={post.id} />
-      ))}
-    </div>
+    <>
+      {isLoading && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+
+      <div className={style.posts}>
+        {posts && posts.map((post) => <Post post={post} key={post.id} />)}
+      </div>
+    </>
   );
 }
 

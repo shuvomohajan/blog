@@ -6,22 +6,26 @@ function useFatch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.status + " " + response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setDatas(data);
-        setIsLoading(false);
-        setError(null);
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        setError(error.message);
-      });
+    setTimeout(() => {
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw Error(response.status + " " + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setDatas(data);
+          setIsLoading(false);
+          setError(null);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setError(error.message);
+        });
+    }, 1000);
+
+    return () => console.log("ok");
   }, [url]);
 
   return [data, isLoading, error];

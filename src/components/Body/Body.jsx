@@ -2,17 +2,16 @@ import { Route, Switch } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Posts from "../Posts/Posts";
 
-function Body({ posts, isLoading, error }) {
+function Body() {
   return (
     <div className="container">
-      {isLoading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-
       <Switch>
         <Route exact path="/">
-          {posts && <Posts posts={posts} />}
+          <Posts />
         </Route>
-        <Route path="/articles">{posts && <Posts posts={posts} />}</Route>
+        <Route path="/articles">
+          <Posts />
+        </Route>
         <Route path="/profile">
           <Profile />
         </Route>

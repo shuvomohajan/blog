@@ -6,7 +6,7 @@ function PostDetails() {
   const { id } = useParams();
   const history = useHistory();
   const [post, isLoading, error] = useFatch(
-    "http://localhost:8000/posts/" + id
+    "https://jsonplaceholder.typicode.com/posts/" + id
   );
 
   return (
@@ -18,8 +18,8 @@ function PostDetails() {
       {post && (
         <div className={style.postDetails}>
           <h2 className={style.title}>{post.title}</h2>
-          <p className={style.date}>{post.date}</p>
-          <div className={style.details}>{post.details}</div>
+          <p className={style.user}>User ID : {post.userId}</p>
+          <div className={style.body}>{post.body}</div>
         </div>
       )}
     </>

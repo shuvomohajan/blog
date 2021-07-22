@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import style from "./Posts.module.scss";
 
 function Posts() {
-  const [posts, isLoading, error] = useFatch("http://localhost:8000/posts");
+  const [posts, isLoading, error] = useFatch("https://jsonplaceholder.typicode.com/posts");
 
   return (
     <>

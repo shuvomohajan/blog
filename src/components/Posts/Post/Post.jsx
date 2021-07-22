@@ -7,8 +7,7 @@ function Post({ post }) {
       <div className={style.post}>
         <div className={style.content}>
           <h2 className={style.title}>{post.title}</h2>
-          <p className={style.date}>{post.date}</p>
-          <p className={style.details}>{post.details}</p>
+          <p className={style.body}>{post.body}</p>
         </div>
       </div>
     </Link>
